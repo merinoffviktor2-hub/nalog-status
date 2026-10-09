@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Nalog MAP — восстанавливаем работу</title>
+  <meta name="description" content="Сервис Nalog MAP временно недоступен из-за аварии в дата-центре провайдера. Восстанавливаем работу, данные сохранены.">
+  <style>
+    :root {
+      --bg: #f8faf9;
+      --card: #ffffff;
+      --text: #14251a;
+      --muted: #52645a;
+      --border: #e3ebe6;
+      --primary: #16a34a;
+      --primary-soft: #dcfce7;
+      --primary-text: #166534;
+      --amber-soft: #fef3c7;
+      --amber-border: #fcd34d;
+      --amber-text: #78350f;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1a13;
+        --card: #16241b;
+        --text: #e7f0ea;
+        --muted: #a3b5aa;
+        --border: #24372b;
+        --primary: #4ade80;
+        --primary-soft: #14532d;
+        --primary-text: #bbf7d0;
+        --amber-soft: #3a2c0b;
+        --amber-border: #92400e;
+        --amber-text: #fde68a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.55 "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 32px 16px 48px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 9px; background: var(--primary);
+      color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 15px;
+    }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 28px;
+      padding: 6px 12px; border-radius: 999px; background: var(--amber-soft);
+      border: 1px solid var(--amber-border); color: var(--amber-text); font-size: 14px; font-weight: 600;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 1.6s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .35; } }
+    @media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+    h1 { font-size: 28px; line-height: 1.2; margin: 16px 0 12px; letter-spacing: -0.01em; }
+    .lead { font-size: 17px; color: var(--muted); margin: 0; }
+    .cards { display: grid; gap: 12px; margin-top: 28px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px 18px 16px;
+    }
+    .card h2 { font-size: 17px; margin: 0 0 6px; }
+    .card p { margin: 0; color: var(--muted); }
+    .card p + p { margin-top: 8px; }
+    .card.paid { border-color: var(--primary); background: var(--primary-soft); }
+    .card.paid h2, .card.paid p { color: var(--primary-text); }
+    .deadlines { list-style: none; padding: 0; margin: 8px 0 0; }
+    .deadlines li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--border); color: var(--muted); }
+    .deadlines li:first-child { border-top: 0; }
+    .deadlines b { color: var(--text); white-space: nowrap; }
+    .tg { color: var(--primary); font-weight: 600; text-decoration: none; }
+    .tg:hover { text-decoration: underline; }
+    footer { margin-top: 28px; color: var(--muted); font-size: 14px; }
+    @media (min-width: 768px) {
+      main { padding-top: 56px; }
+      h1 { font-size: 38px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .card.wide { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand"><span class="brand-mark" aria-hidden="true">N</span>Nalog MAP</div>
+
+    <div class="status" role="status"><span class="dot" aria-hidden="true"></span>Восстанавливаем работу</div>
+
+    <h1>Сервис временно недоступен</h1>
+    <p class="lead">
+      В дата-центре Яндекс Облака, где работал сервер Nalog MAP, произошла авария. Проблема на стороне
+      провайдера — мы уже переносим сервис на новый сервер и делаем всё, чтобы он заработал как можно быстрее.
+    </p>
+
+    <div class="cards">
+      <section class="card paid wide" aria-labelledby="paid-title">
+        <h2 id="paid-title">Если у вас платная подписка</h2>
+        <p>Все дни, пока сервис недоступен, мы добавим к вашей подписке автоматически. Делать ничего не нужно — вы не потеряете ни одного оплаченного дня.</p>
+      </section>
+
+      <section class="card" aria-labelledby="data-title">
+        <h2 id="data-title">Ваши данные сохранены</h2>
+        <p>Мы восстанавливаем их из резервной копии: ключи WB и Ozon, выписки и расчёты вводить заново не придётся.</p>
+        <p>Если вы что-то загружали 7–8 октября, после запуска проверьте эти данные — подскажем, что повторить.</p>
+      </section>
+
+      <section class="card" aria-labelledby="tax-title">
+        <h2 id="tax-title">Ближайшие сроки уплаты</h2>
+        <ul class="deadlines">
+          <li>АУСН за сентябрь <b>до 25 октября</b></li>
+          <li>Аванс УСН за 9 месяцев <b>до 28 октября</b></li>
+        </ul>
+        <p>До них ещё есть время — рассчитываем вернуть сервис раньше.</p>
+      </section>
+
+      <section class="card wide" aria-labelledby="contact-title">
+        <h2 id="contact-title">Есть вопросы?</h2>
+        <p>Пишите в Telegram: <a class="tg" href="https://t.me/Niki96rus" rel="noopener">@Niki96rus</a></p>
+      </section>
+    </div>
+
+    <footer>Как только сервис заработает, сообщим по email. Обновлено 9 октября 2026.</footer>
+  </main>
+</body>
+</html>
